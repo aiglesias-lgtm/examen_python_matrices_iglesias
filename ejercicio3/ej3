@@ -1,0 +1,26 @@
+tablero = [
+    ["-", "-", "-"],
+    ["-", "-", "-"],
+    ["-", "-", "-"]
+]
+
+def mostrar_tablero():
+    for fila in tablero:
+        print(" | ".join(fila))
+    print()
+
+# Bucle principal del juego
+jugador_actual = "X"
+
+while True:
+    mostrar_tablero()
+    print(f"Turno del Jugador ({jugador_actual})")
+    
+    fila = int(input("Ingrese fila: "))
+    columna = int(input("Ingrese columna: "))
+    
+    if tablero[fila][columna] == "-":
+        tablero[fila][columna] = jugador_actual
+        jugador_actual = "O" if jugador_actual == "X" else "X"
+    else:
+        print("\nCasillo ocupado. Intenta de nuevo.\n")

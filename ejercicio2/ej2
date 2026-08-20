@@ -1,0 +1,46 @@
+
+def validar_texto(texto):
+    if any(caracter.isdigit() for caracter in texto):
+        raise ValueError("Error: No se permiten números .")
+    return texto
+
+pacientes = []
+sintoma_1 = []
+sintoma_2 = []
+sintoma_3 = []
+
+print("Registro de Pacientes ")
+while True:
+    nombre = input("Ingrese el nombre del paciente (o presione Enter para finalizar): ")
+    if not nombre:
+        break
+
+    validar_texto(nombre)
+    
+    print(f"Ingrese hasta 3 síntomas para {nombre}:")
+    
+    s1 = input("  Síntoma 1: ")
+    validar_texto(s1)
+    
+    s2 = input("  Síntoma 2 (opcional, Enter para omitir): ")
+    validar_texto(s2)
+    
+    s3 = input("  Síntoma 3 (opcional, Enter para omitir): ")
+    validar_texto(s3)
+    
+    pacientes.append(nombre)
+    sintoma_1.append(s1)
+    sintoma_2.append(s2)
+    sintoma_3.append(s3)
+
+
+matriz = [
+    pacientes,
+    sintoma_1,
+    sintoma_2,
+    sintoma_3
+]
+
+print("\nPlanilla de Pacientes:")
+for fila in matriz:
+    print(fila)
